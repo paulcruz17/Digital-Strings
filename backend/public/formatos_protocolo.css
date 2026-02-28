@@ -1,0 +1,354 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO */
+body {
+    min-height: 100vh;
+    background: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/ENCABEZADO-HOME-min.png")
+        center / cover no-repeat fixed;
+    color: #FFFFFF;
+}
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding: 0 32px;
+
+    background: rgba(0, 0, 0, 0.293);
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+/* CONTENIDO INTERNO */
+.navbar-left {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.navbar-left img {
+    height: 36px;
+}
+.navbar-left h1 {
+    font-family: bebas neue;
+    font-size: 40px;
+    font-weight: 400;
+}
+/* CONTENIDO DE LA PÁGINA */
+.content {
+    padding-top: 120px; /* baja el contenido debajo de la navbar */
+}
+.navbar-right {
+  display: flex;
+  gap: 20px;
+}
+.navbar-right a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.navbar-right a:hover {
+  opacity: 1;
+  color: #F5B553;
+}
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .navbar-left img {
+        height: 28px;
+    }
+
+    .navbar-left h1 {
+        font-size: 18px;
+    }
+}
+/* CONTENEDOR PRINCIPAL */
+.content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 32px;
+  color: #fff;
+}
+
+.section-header {
+  padding: 32px;
+}
+
+.section-header h1 {
+  font-size: 42px;
+  font-weight: 500;
+  font-family: "DM Serif Text", serif;
+}
+
+.section-header p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #d0d0d0;
+  position: relative;
+}
+
+.section-header p::after {
+  content: "";
+  display: inline-block;
+  width: 180px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+/* ================== CARD AREA ================== */
+
+#card-area {
+  height: 100%;
+  padding: 50px 200px;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px 0;
+}
+
+.box-area {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+
+/* ================== BOX ================== */
+
+.box {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.97);
+}
+
+/* ================== VIDEO THUMB ================== */
+
+.video-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.video-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.5s ease;
+}
+
+
+/* ================== HOVER EFFECT ================== */
+.box:hover {
+  box-shadow:
+    0 0 10px rgba(245, 83, 83, 0.4),
+    0 0 50px rgba(245, 142, 83, 0.35),
+    0 0 100px rgba(245, 207, 83, 0.25);
+}
+.box:hover img {
+  transform: scale(1.2);
+  
+}
+
+
+/* ================== OVERLAY ================== */
+
+.overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 0;
+
+  background: linear-gradient(
+    transparent,
+    rgba(0,0,0,0.7) 60%
+  );
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 0 40px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  transition: height 0.5s ease;
+}
+
+.box:hover .overlay {
+  height: 150%;
+}
+
+
+/* ================== OVERLAY TEXT ================== */
+
+.overlay h3 {
+  font-weight: 500;
+  margin-bottom: 6px;
+  margin-top: 80%;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-family: "DM Serif Text", serif;
+}
+
+.overlay p {
+  color: #ddd;
+}
+
+
+/* ================== BUTTON ================== */
+
+.overlay a {
+  margin-top: 12px;
+
+  color: #000;
+  background: #fff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  padding: 6px 18px;
+
+  border-radius: 50px;
+
+  transition: all 0.25s ease;
+}
+
+.overlay a:hover {
+  background: #f5b553;
+  color: #000;
+  box-shadow:
+    0 0 10px rgba(245, 181, 83, 0.4),
+    0 0 50px rgba(245, 181, 83, 0.35),
+    0 0 100px rgba(245, 181, 83, 0.25);
+}
+
+/* ================= VIDEO MODAL ================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.97);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+
+/* IFRAME (YOUTUBE) */
+#modalIframe {
+  width: 90vw;
+  height: 90vh;
+
+  max-width: 1400px;
+  max-height: 800px;
+
+  border: none;
+  border-radius: 16px;
+
+  background: #000;
+
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+
+/* BOTÓN CERRAR */
+.close-video {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+
+  z-index: 100000;
+
+  transition: 
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.close-video:hover {
+  background: rgba(245, 181, 83, 0.95);
+  color: #000;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(245, 181, 83, 0.7);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  #modalIframe {
+    width: 96vw;
+    height: 55vh;
+  }
+
+}
+

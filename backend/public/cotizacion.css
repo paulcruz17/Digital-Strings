@@ -1,0 +1,338 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO */
+body {
+    min-height: 100vh;
+    background: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/ENCABEZADO-HOME-min.png")
+        center / cover no-repeat fixed;
+    color: #FFFFFF;
+}
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding: 0 32px;
+
+    background: rgba(0, 0, 0, 0.293);
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+/* CONTENIDO INTERNO */
+.navbar-left {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.navbar-left img {
+    height: 36px;
+}
+
+.navbar-left h1 {
+    font-family: bebas neue;
+    font-size: 40px;
+    font-weight: 400;
+}
+.navbar-right a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.navbar-right a:hover {
+  opacity: 1;
+  color: #F5B553;
+}
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .navbar-left img {
+        height: 28px;
+    }
+
+    .navbar-left h1 {
+        font-size: 18px;
+    }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 32px;
+  color: #fff;
+}
+
+/* HEADER */
+.section-header {
+  padding: 32px;
+}
+
+.section-header h1 {
+  font-size: 42px;
+  font-weight: 500;
+  font-family: "DM Serif Text", serif;
+}
+
+.section-header p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #d0d0d0;
+  position: relative;
+}
+
+.section-header p::after {
+  content: "";
+  display: inline-block;
+  width: 180px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+/* CARDS */
+.cards-events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+  height: 50%;
+  padding: 0 200px;
+}
+
+.card-event {
+  position: relative;
+  height: 500px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  transition: transform 0.35s ease;
+}
+/* HOVER */
+.card-event:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(245, 181, 83, 0.4),
+    0 0 25px rgba(245, 181, 83, 0.35),
+    0 0 50px rgba(245, 181, 83, 0.25);
+}
+/* SELECCIONADA (MISMO EFECTO, PERMANENTE) */
+.card-event.selected {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(245, 181, 83, 0.6),
+    0 0 30px rgba(245, 181, 83, 0.45),
+    0 0 60px rgba(245, 181, 83, 0.35);
+}
+
+.card-event::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    #F5B553,
+    #F7C873,
+    #FAEBCD,
+    #F5B553
+  );
+  opacity: 0;
+  z-index: 0;
+  animation: rotateBorder 3s linear infinite;
+}
+/* activar borde */
+.card-event.selected::before {
+  opacity: 1;
+}
+
+/* IMAGEN */
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+/* PERMITIR CLICK EN TODA LA TARJETA */
+.card-bg,
+.card-info {
+  pointer-events: none;
+}
+
+/* IMÁGENES (puedes cambiarlas luego) */
+.matrimonio {
+  background-image: url("assets/img/matrimonio.png");
+}
+
+.quince {
+  background-image: url("assets/img/quince-años.png");
+}
+
+.privado {
+  background-image: url("assets/img/privado.png");
+}
+
+/* INFO CARD */
+.card-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  z-index: 2;
+}
+
+/* ocultar radios */
+.card-info input {
+  display: none;
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(245, 181, 83, 0.4),
+    0 0 25px rgba(245, 181, 83, 0.35),
+    0 0 50px rgba(245, 181, 83, 0.25);
+}
+
+.card-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-info label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.card-info input {
+  accent-color: #F5B553;
+}
+
+
+/* INPUT GROUP */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 48px 14px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  height: 48px; /* clave para alineación perfecta */
+}
+
+.input-group input :hover {
+  box-shadow:
+    0 0 0 1px rgba(245, 181, 83, 0.4),
+    0 0 25px rgba(245, 181, 83, 0.35),
+    0 0 50px rgba(245, 181, 83, 0.25);
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  height: 100%;
+  color: #F5B553;
+  pointer-events: none;
+  top: 17%;
+}
+
+/* MATERIAL SYMBOL CONFIG */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* FORMULARIO */
+.event-form {
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 0 auto; /* 🔑 ESTO LO CENTRA */
+}
+
+.event-form h2 {
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.event-form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.5);
+  color: #F5B553;
+}
+
+.event-form input::placeholder {
+  color: #bdbdbd;
+}
+
+/* BOTON */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #F5B553, #D89B3A);
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #F7C873, #FAEBCD);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 900px) {
+  .cards-events {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-left h1 {
+    font-size: 22px;
+  }
+}
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formatos Coctel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS BASE -->
+  <link rel="stylesheet" href="formatos_coctel.css">
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-left">
+    <img
+      src="https://digitalstrings.com.co/wp-content/uploads/2025/07/cropped-LOGOTIPO-02-140x35.png"
+      alt="Digital Strings">
+    <h1 id="eventHeader"></h1>
+    <nav class="navbar-right">
+      <a href="#" id="backBtn" data-back="/momentos_matrimonio.html">Volver</a>
+      <a href="#" id="logoutBtn">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="content">
+
+  <section class="section-header">
+    <h1>Formatos Coctel</h1>
+    <p>Selecciona el formato a cotizar</p>
+  </section>
+
+  <div id="card-area">
+    <div class="wrapper">
+      <div class="box-area">
+
+        <!-- SHOW SAX -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/sax-coctel.png"
+              alt="Sax Coctel"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>SHOW SAX</h3>
+            <p>Saxofón con Pistas</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/LEYYq9EIzII">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+        <!-- SHOW VIOLIN -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/violin-coctel.png"
+              alt="Violin Coctel"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>SHOW VIOLÍN</h3>
+            <p>Violín con Pistas</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/N27upc2sy2U">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="box-area">
+
+        <!-- TRIO CORSSOVER -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/trio-coctel.png"
+              alt="Trio Coctel"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>TRIO CROSSOVER</h3>
+            <p>Piano, Pad y Guitarrista Cantante</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/hKclZGs4368">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+        <!-- STRINGS BAND -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/strings-band.png"
+              alt="STRINGS Coctel"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>STRINGS BAND</h3>
+            <p></p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/lHDNdZgHBMU">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+
+</main>
+
+<!-- VIDEO FULLSCREEN -->
+<div id="videoModal" class="video-modal">
+
+  <button id="closeVideo" class="close-video material-symbols-outlined">
+    close
+  </button>
+
+  <iframe
+    id="modalIframe"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

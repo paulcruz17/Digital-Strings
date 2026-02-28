@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Momentos del Evento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS BASE -->
+  <link rel="stylesheet" href="momentos_matrimonio.css">
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-left">
+    <img
+      src="https://digitalstrings.com.co/wp-content/uploads/2025/07/cropped-LOGOTIPO-02-140x35.png"
+      alt="Digital Strings">
+      <h1 id="eventHeader"></h1>
+    <nav class="navbar-right">
+      <a href="#" id="backBtn" data-back="/cotizacion.html">Volver</a>
+      <a href="#" id="logoutBtn">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="content">
+
+  <section class="section-header">
+    <h1>Momentos del Evento</h1>
+    <p>Selecciona el momento a organizar</p>
+  </section>
+
+  <!-- TARJETAS DE MOMENTOS -->
+  <section class="cards-events">
+
+    <div class="card-event" data-moment="coctel">
+      <div class="card-inner">
+        <div class="card-bg coctel"></div>
+        <div class="card-info">
+          <h2>Cóctel</h2>
+        </div>
+      </div>      
+    </div>
+
+    <div class="card-event" data-moment="protocolo">
+      <div class="card-inner">
+        <div class="card-bg protocolo"></div>
+        <div class="card-info">
+          <h2>Protocolo</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-event" data-moment="cena">
+      <div class="card-inner">
+        <div class="card-bg cena"></div>
+        <div class="card-info">
+          <h2>Cena</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-event" data-moment="fiesta">
+      <div class="card-inner">
+        <div class="card-bg fiesta"></div>
+        <div class="card-info">
+          <h2>Fiesta</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-event" data-moment="iluminacion">
+      <div class="card-inner">
+        <div class="card-bg iluminacion"></div>
+        <div class="card-info">
+          <h2>Audio e Iluminación</h2>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

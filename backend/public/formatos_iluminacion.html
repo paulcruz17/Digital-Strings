@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formatos Audio e Iluminación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS BASE -->
+  <link rel="stylesheet" href="formatos_iluminacion.css">
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-left">
+    <img
+      src="https://digitalstrings.com.co/wp-content/uploads/2025/07/cropped-LOGOTIPO-02-140x35.png"
+      alt="Digital Strings">
+    <h1 id="eventHeader"></h1>
+    <nav class="navbar-right">
+      <a href="#" id="backBtn" data-back="/momentos_matrimonio.html">Volver</a>
+      <a href="#" id="logoutBtn">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="content">
+
+  <section class="section-header">
+    <h1>Formatos Audio e Iluminación</h1>
+    <p>Selecciona el formato a cotizar</p>
+  </section>
+
+  <!-- SLIDER FORMATOS -->
+  <section class="container">
+    <div class="slider-wrapper">
+      <div class="slider">
+        <img id="slide-1" src="assets/img/booth-herbal.png" alt="">
+        <img id="slide-2" src="assets/img/plan-basico.png" alt="">        
+        <img id="slide-3" src="assets/img/plan-básico-booth-herbal.png" alt="">
+        <img id="slide-4" src="assets/img/plan-elite-booth-led.png" alt="">
+        <img id="slide-5" src="assets/img/plan-premium-lagrimas.png" alt="">
+        <img id="slide-6" src="assets/img/plan-premium-lagrimas-dj.png" alt="">
+        <img id="slide-7" src="assets/img/plan-vip.png" alt="">
+      </div>
+      <div class="slider-nav">
+        <a href="#" data-slide="0"></a>
+        <a href="#" data-slide="1"></a>
+        <a href="#" data-slide="2"></a>
+        <a href="#" data-slide="3"></a>
+        <a href="#" data-slide="4"></a>
+        <a href="#" data-slide="5"></a>
+        <a href="#" data-slide="6"></a>
+        <a href="#" data-slide="7"></a>
+      </div>
+    </div>
+  </section>
+
+  <div id="card-area">
+    <div class="wrapper">
+      <div class="box-area">
+
+        <!-- STRINGS BAND -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/polvora.png"
+              alt="STRINGS Coctel"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>POLVORA FRIA</h3>
+            <p></p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/dNFXThpOS04">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</main>
+
+  <!-- VIDEO FULLSCREEN -->
+<div id="videoModal" class="video-modal">
+
+  <button id="closeVideo" class="close-video material-symbols-outlined">
+    close
+  </button>
+
+  <iframe
+    id="modalIframe"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

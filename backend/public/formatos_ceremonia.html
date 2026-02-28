@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formatos Ceremonia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS BASE -->
+  <link rel="stylesheet" href="formatos_ceremonia.css">
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-left">
+    <img
+      src="https://digitalstrings.com.co/wp-content/uploads/2025/07/cropped-LOGOTIPO-02-140x35.png"
+      alt="Digital Strings">
+    <h1 id="eventHeader"></h1>
+    <nav class="navbar-right">
+      <a href="#" id="backBtn" data-back="/momentos_matrimonio.html">Volver</a>
+      <a href="#" id="logoutBtn">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="content">
+
+  <section class="section-header">
+    <h1>Formatos Ceremonia</h1>
+    <p>Selecciona el formato a cotizar</p>
+  </section>
+
+  <div id="card-area">
+    <div class="wrapper">
+      <div class="box-area">
+
+        <!-- TRÍO -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/trio-ceremeonia.png"
+              alt="Trío Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>TRÍO</h3>
+            <p>Piano, Violín y Cantante</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/rJIAPFYtxNw">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+        <!-- CUARTETO -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/cuarteto-ceremeonia.png"
+              alt="Cuarteto Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>CUARTETO</h3>
+            <p>Violín, Piano, Soprano y Tenor</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/DCUdtXv6NT8">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+        <!-- CUARTETO CUERDAS -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/cuarteto-cuerdas.png"
+              alt="Cuarteto Cuerdas Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>CUARTETO STRINGS</h3>
+            <p>Cello, Viola , Violín II & Violín I</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/-n-WXtJVfmU">
+              Ver video
+            </a>
+          </div>
+        </div> 
+        
+      </div>
+
+      <div class="box-area">
+
+        <!-- QUINTETO -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/quinteto-ceremeonia.png"
+              alt="Quinteto Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>QUINTETO</h3>
+            <p>Piano, Violín, Cello, Soprano y Tenor</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/D0KnypOt8ec">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+        <!-- NONETO -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/noneno-ceremeonia.png"
+              alt="Noneno Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>NONETO</h3>
+            <p>Cuarteto de cuerdas, Cuarteto Vocal y Piano.</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/tVVc2SvM0Mo">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+
+        <!-- CAMARA -->
+        <div class="box">
+          <div class="video-wrapper">
+            <img
+              src="assets/img/camara-ceremeonia.png"
+              alt="Noneno Ceremonia"
+              class="video-thumb">
+          </div>
+
+          <div class="overlay">
+            <h3>ENSAMBLE DE CAMARA</h3>
+            <p>Ensamble de Camara de 18 Artistas.</p>
+
+            <a href="#"
+              class="select-video"
+              data-video="https://youtu.be/FnrbM2ub-HE">
+              Ver video
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- VIDEO FULLSCREEN -->
+<div id="videoModal" class="video-modal">
+
+  <button id="closeVideo" class="close-video material-symbols-outlined">
+    close
+  </button>
+
+  <iframe
+    id="modalIframe"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

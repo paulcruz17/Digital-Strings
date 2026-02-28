@@ -1,0 +1,149 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO */
+body {
+    height: 100vh;
+    background: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/ENCABEZADO-HOME-min.png")
+        center / cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+/* WRAPPER */
+.login-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+/* LOGO */
+.login-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-header img {
+    max-width: 170px;
+}
+
+/* CARD */
+.login-card {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 40px 35px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* TITULOS */
+.login-card h1 {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-family: "DM Serif Text", serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 14px;
+    color: #CACACA;
+    margin-bottom: 30px;
+}
+
+/* INPUT */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 46px 14px 14px;
+    border-radius: 10px;
+    border: none;
+    background: #000000;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.input-group input::placeholder {
+    color: #CACACA;
+}
+
+.input-group input:focus {
+    outline: 2px solid #F5B553;
+}
+
+/* PASSWORD GROUP */
+.password-group {
+    position: relative;
+}
+
+/* MATERIAL ICON */
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #F5B553;
+    font-size: 22px;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    color: #F7C873;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+/* ERROR */
+.error-msg {
+    font-size: 13px;
+    color: #F5B553;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    text-align: center;
+    min-height: 16px;
+}
+
+/* BOTON */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #F5B553, #F7C873);
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #F7C873, #FAEBCD);
+}
+
+/* FOOTER */
+.footer-text {
+    text-align: center;
+    font-size: 12px;
+    color: #CACACA;
+    margin-top: 20px;
+}
