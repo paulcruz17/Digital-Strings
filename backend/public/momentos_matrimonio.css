@@ -9,7 +9,7 @@
 /* FONDO */
 body {
     min-height: 100vh;
-    background: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/ENCABEZADO-HOME-min.png")
+    background: url("assets/img/fondo.png")
         center / cover no-repeat fixed;
     color: #FFFFFF;
 }
@@ -210,11 +210,11 @@ body {
 }
 
 .coctel {
-  background-image: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/Fotografia-Digital-Strings-Sax-Home.png");
+  background-image: url("assets/img/coctel.png");
 }
 
 .protocolo {
-  background-image: url("https://digitalstrings.com.co/wp-content/uploads/2024/10/PRODUCCION-AUDIO-E-ILUMINACION-02.png");
+  background-image: url("assets/img/protocolo.png");
 }
 
 .cena {
@@ -222,7 +222,7 @@ body {
 }
 
 .fiesta {
-  background-image: url("https://digitalstrings.com.co/wp-content/uploads/2024/10/TROPICAL-STRINGS-02.png");
+  background-image: url("assets/img/tropical-strings.png");
 }
 
 .iluminacion {

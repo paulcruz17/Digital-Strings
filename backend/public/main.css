@@ -9,7 +9,7 @@
 /* FONDO */
 body {
     min-height: 100vh;
-    background: url("https://digitalstrings.com.co/wp-content/uploads/2024/03/ENCABEZADO-HOME-min.png")
+    background: url("assets/img/fondo.png")
         center / cover no-repeat fixed;
     background-color: #000;
     overflow-x: hidden;
