@@ -13,7 +13,10 @@ body {
         center / cover no-repeat fixed;
     color: #FFFFFF;
 }
-/* NAVBAR */
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
 .navbar {
     position: fixed;
     top: 0;
@@ -22,19 +25,14 @@ body {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-
     padding: 0 32px;
-
     background: rgba(0, 0, 0, 0.293);
     backdrop-filter: blur(8px);
-
     z-index: 1000;
 }
 
-/* CONTENIDO INTERNO */
 .navbar-left {
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,215 +41,321 @@ body {
 
 .navbar-left img {
     height: 36px;
+    flex-shrink: 0;
 }
+
 .navbar-left h1 {
-    font-family: bebas neue;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-/* CONTENIDO DE LA PÁGINA */
-.content {
-    padding-top: 120px; /* baja el contenido debajo de la navbar */
-}
+
 .navbar-right {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
 }
+
 .navbar-right a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.85;
-  transition: opacity 0.25s ease, color 0.25s ease;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.85;
+    white-space: nowrap;
+    transition: opacity 0.25s ease, color 0.25s ease;
 }
 
 .navbar-right a:hover {
-  opacity: 1;
-  color: #F5B553;
+    opacity: 1;
+    color: #F5B553;
 }
-/* RESPONSIVE */
+
+/* ══════════════════════════════════════
+   CONTENIDO PRINCIPAL
+══════════════════════════════════════ */
+.content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 120px 32px 60px;
+    color: #fff;
+}
+
+/* ══════════════════════════════════════
+   HEADER DE SECCIÓN
+══════════════════════════════════════ */
+.section-header {
+    padding: 30px;
+}
+
+.section-header h1 {
+    font-size: 42px;
+    font-weight: 500;
+    font-family: "DM Serif Text", serif;
+}
+
+.section-header p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #d0d0d0;
+    position: relative;
+}
+
+.section-header p::after {
+    content: "";
+    display: inline-block;
+    width: 180px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+/* ══════════════════════════════════════
+   GRID DE CARDS
+══════════════════════════════════════ */
+.cards-events {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 200px;
+}
+
+/* ══════════════════════════════════════
+   TARJETA
+══════════════════════════════════════ */
+.card-event {
+    height: 400px;
+    width: 100%;         /* era 700px fijo — roto en cualquier grid */
+    background: #000;
+    border-radius: 18px;
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card-event::after,
+.card-event::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    height: calc(100% + 8px);
+    width: calc(100% + 8px);
+    background-image: conic-gradient(from var(--angle), transparent 100%, #F5B553, #D89B3A);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    border-radius: 20px;
+    animation: 4s spin linear infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-event::before {
+    filter: blur(1rem);
+    opacity: 0;
+}
+
+.card-event:hover::after,
+.card-event:hover::before {
+    opacity: 1;
+    background-image: conic-gradient(from var(--angle), transparent 70%, #F5B553, #D89B3A);
+}
+
+@keyframes spin {
+    from { --angle: 0deg; }
+    to   { --angle: 360deg; }
+}
+
+.card-event:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 0 1px rgba(245, 181, 83, 0.4),
+        0 0 25px rgba(245, 181, 83, 0.35),
+        0 0 50px rgba(245, 181, 83, 0.25);
+}
+
+/* INNER (recorta la imagen respetando border-radius) */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* IMAGEN DE FONDO */
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    z-index: 1;
+}
+
+.ceremonia   { background-image: url("assets/img/matrimonio-2.png"); }
+.coctel      { background-image: url("assets/img/coctel.png"); }
+.protocolo   { background-image: url("assets/img/protocolo-2.png"); }
+.cena        { background-image: url("assets/img/cena.png"); }
+.fiesta      { background-image: url("assets/img/tropical-strings.png"); }
+.iluminacion { background-image: url("https://images.pexels.com/photos/919734/pexels-photo-919734.jpeg"); }
+
+/* TEXTO SOBRE LA CARD */
+.card-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.3),
+        transparent
+    );
+    z-index: 2;
+}
+
+.card-info h2 {
+    font-family: "DM Serif Text", serif;
+    font-size: 20px;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* Pantallas medianas (≤ 1200px) */
+@media (max-width: 1200px) {
+    .cards-events {
+        padding: 0 60px;
+    }
+}
+
+/* Tablets (≤ 900px) — 2 columnas */
+@media (max-width: 900px) {
+    .cards-events {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 32px;
+        gap: 20px;
+    }
+
+    .card-event {
+        height: 300px;
+    }
+
+    .navbar-left h1 {
+        font-size: 28px;
+    }
+
+    .section-header h1 {
+        font-size: 32px;
+    }
+
+    .section-header p::after {
+        display: none;
+    }
+}
+
+/* Móviles (≤ 600px) — 1 columna */
 @media (max-width: 600px) {
+    .navbar {
+        height: 70px;
+        padding: 0 16px;
+    }
+
     .navbar-left img {
-        height: 28px;
+        height: 26px;
     }
 
     .navbar-left h1 {
         font-size: 18px;
     }
-}
-/* CONTENEDOR PRINCIPAL */
-.content {
-  width: 100%;
-  margin: 0 auto;
-  padding: 100px 32px;
-  color: #fff;
+
+    .navbar-right {
+        gap: 12px;
+    }
+
+    .navbar-right a {
+        font-size: 12px;
+    }
+
+    .content {
+        padding: 90px 16px 40px;
+    }
+
+    .section-header {
+        padding: 16px;
+    }
+
+    .section-header h1 {
+        font-size: 26px;
+    }
+
+    .cards-events {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 16px;
+    }
+
+    .card-event {
+        height: 220px;
+        border-radius: 12px;
+    }
+
+    .card-inner {
+        border-radius: 12px;
+    }
+
+    .card-info h2 {
+        font-size: 17px;
+    }
 }
 
-.section-header {
-  padding: 30px;
+/* Móviles muy pequeños (≤ 360px) */
+@media (max-width: 360px) {
+    .navbar-left h1 {
+        font-size: 15px;
+    }
+
+    .section-header h1 {
+        font-size: 22px;
+    }
+
+    .card-event {
+        height: 180px;
+    }
 }
 
-.section-header h1 {
-  font-size: 42px;
-  font-weight: 500;
-  font-family: "DM Serif Text", serif;
-}
+/* Landscape en móvil */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        height: 60px;
+    }
 
-.section-header p {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #d0d0d0;
-  position: relative;
-}
+    .content {
+        padding-top: 80px;
+    }
 
-.section-header p::after {
-  content: "";
-  display: inline-block;
-  width: 180px;
-  height: 1px;
-  background: rgba(255,255,255,0.3);
-  margin-left: 15px;
-  vertical-align: middle;
-}
+    .cards-events {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+        gap: 12px;
+    }
 
-/* GRID */
-.cards-events {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  padding: 0 200px;
-}
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  z-index: 2;
-}
-/* TARJETA */
-.card-event {
-  height: 400px;
-  margin: 0 auto;
-  width: 700px;
-  background: #000;
-  text-align: center;
-  border-radius: 18px;
-  position: relative;
-  gap: 30px;
-  overflow: visible;
-  cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  text-align: center;
-}
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.card-event::after, .card-event::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  height: 100%;
-  width: 100%;
-  background-image: conic-gradient(from var(--angle), transparent 100%, #F5B553, #D89B3A);
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  z-index: 1;
-  padding: 1.5px;  
-  border-radius: 18px;
-  animation: 4s spin linear infinite;
-  opacity: 0;
-  pointer-events: none;
-}
-.card-event::before {
-  filter: blur(1rem);
-  opacity: 0.5;
-
-}
-.card-event:hover::before, .card:hover::after {
-  opacity: 1;
-  background-image: conic-gradient(from var(--angle), transparent 70%, #F5B553, #D89B3A);
-}
-
-@keyframes spin {
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
-}
-/* HOVER (solo visual, temporal) */
-.card-event:hover {
-  transform: scale(1.03);
-  box-shadow:
-    0 0 0 1px rgba(245, 181, 83, 0.4),
-    0 0 25px rgba(245, 181, 83, 0.35),
-    0 0 50px rgba(245, 181, 83, 0.25);
-}
-
-/* FONDO IMAGEN */
-.card-bg {
-  border-radius: 18px;
-  padding: 2em;
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-/* IMÁGENES DE MOMENTOS */
-.ceremonia {
-  background-image: url("assets/img/matrimonio-2.png");
-}
-
-.coctel {
-  background-image: url("assets/img/coctel.png");
-}
-
-.protocolo {
-  background-image: url("assets/img/protocolo-2.png");
-}
-
-.cena {
-  background-image: url("assets/img/cena.png");
-}
-
-.fiesta {
-  background-image: url("assets/img/tropical-strings.png");
-}
-
-.iluminacion {
-  background-image: url("https://images.pexels.com/photos/919734/pexels-photo-919734.jpeg");
-}
-
-/* TEXTO */
-.card-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.3),
-    transparent
-  );
-  z-index: 2;
-}
-
-.card-info h2 {
-  font-family: "DM Serif Text", serif;
-  font-size: 20px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cards-events {
-    grid-template-columns: 1fr;
-  }
+    .card-event {
+        height: 180px;
+    }
 }
