@@ -11,6 +11,7 @@
   <!-- FUENTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
 </head>
 
@@ -38,70 +39,64 @@
     <p>Selecciona el formato a cotizar</p>
   </section>
 
-  <!-- SLIDER FORMATOS -->
-  <section class="container">
-    <div class="slider-wrapper">
-      <div class="slider">
-        <img id="slide-1" src="assets/img/booth-herbal.png" alt="">
-        <img id="slide-2" src="assets/img/plan-basico.png" alt="">        
-        <img id="slide-3" src="assets/img/plan-basico-booth-herbal.png" alt="">
-        <img id="slide-4" src="assets/img/plan-elite-booth-led.png" alt="">
-        <img id="slide-5" src="assets/img/plan-elite-booth-led-2.png" alt="">
-        <img id="slide-6" src="assets/img/plan-premium-lagrimas.png" alt="">
-        <img id="slide-7" src="assets/img/plan-premium-lagrimas-dj.png" alt="">
-        <img id="slide-8" src="assets/img/plan-vip.png" alt="">
-      </div>
-      <div class="slider-nav">
-        <a href="#" data-slide="1"></a>
-        <a href="#" data-slide="2"></a>
-        <a href="#" data-slide="3"></a>
-        <a href="#" data-slide="4"></a>
-        <a href="#" data-slide="5"></a>
-        <a href="#" data-slide="6"></a>
-        <a href="#" data-slide="7"></a>
-        <a href="#" data-slide="8"></a>
+  <!-- ÁREA PRINCIPAL: SLIDER (izq) + PÓLVORA (der) -->
+  <div class="main-area">
+
+    <!-- COLUMNA SLIDER -->
+    <div class="slider-column">
+      <div class="slider-wrapper">
+        <div class="slider">
+          <img id="slide-1" src="assets/img/booth-herbal.png" alt="Booth Herbal">
+          <img id="slide-2" src="assets/img/plan-basico.png" alt="Plan Básico">
+          <img id="slide-3" src="assets/img/plan-basico-booth-herbal.png" alt="Plan Básico + Booth Herbal">
+          <img id="slide-4" src="assets/img/plan-elite-booth-led.png" alt="Plan Elite Booth LED">
+          <img id="slide-5" src="assets/img/plan-elite-booth-led-2.png" alt="Plan Elite Booth LED 2">
+          <img id="slide-6" src="assets/img/plan-premium-lagrimas.png" alt="Plan Premium Lágrimas">
+          <img id="slide-7" src="assets/img/plan-premium-lagrimas-dj.png" alt="Plan Premium Lágrimas + DJ">
+          <img id="slide-8" src="assets/img/plan-vip.png" alt="Plan VIP">
+        </div>
+        <div class="slider-nav">
+          <a href="#" data-slide="1"></a>
+          <a href="#" data-slide="2"></a>
+          <a href="#" data-slide="3"></a>
+          <a href="#" data-slide="4"></a>
+          <a href="#" data-slide="5"></a>
+          <a href="#" data-slide="6"></a>
+          <a href="#" data-slide="7"></a>
+          <a href="#" data-slide="8"></a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <div id="card-area">
-    <div class="wrapper">
-      <div class="box-area">
-
-        <!-- STRINGS BAND -->
-        <div class="box">
-          <div class="video-wrapper">
-            <img
-              src="assets/img/polvora.png"
-              alt="STRINGS Coctel"
-              class="video-thumb">
-          </div>
-
-          <div class="overlay">
-            <h3>POLVORA FRIA</h3>
-            <p></p>
-
-            <a href="#"
-              class="select-video"
-              data-video="https://youtu.be/dNFXThpOS04">
-              Ver video
-            </a>
+    <!-- COLUMNA CARD PÓLVORA -->
+    <div class="card-column">
+      <div id="card-area">
+        <div class="wrapper">
+          <div class="box-area">
+            <div class="box">
+              <div class="video-wrapper">
+                <img src="assets/img/polvora.png" alt="Pólvora Fría" class="video-thumb">
+              </div>
+              <div class="overlay">
+                <h3>PÓLVORA FRÍA</h3>
+                <p></p>
+                <a href="#" class="select-video" data-video="https://youtu.be/dNFXThpOS04">
+                  Ver video
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-      
     </div>
-  </div>
+
+  </div><!-- /.main-area -->
+
 </main>
 
-  <!-- VIDEO FULLSCREEN -->
+<!-- VIDEO FULLSCREEN -->
 <div id="videoModal" class="video-modal">
-
-  <button id="closeVideo" class="close-video material-symbols-outlined">
-    close
-  </button>
-
+  <button id="closeVideo" class="close-video material-symbols-outlined">close</button>
   <iframe
     id="modalIframe"
     src=""
@@ -109,7 +104,6 @@
     allow="autoplay; encrypted-media; picture-in-picture"
     allowfullscreen>
   </iframe>
-
 </div>
 
 <script type="module" src="app.js"></script>

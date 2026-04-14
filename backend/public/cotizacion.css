@@ -9,9 +9,9 @@
 /* FONDO */
 body {
     min-height: 100vh;
-    background: url("assets/img/fondo.png")
-        center / cover no-repeat fixed;
+    background: url("assets/img/fondo.png") center / cover no-repeat fixed;
     color: #FFFFFF;
+    overflow-x: hidden;
 }
 
 /* ══════════════════════════════════════
@@ -22,10 +22,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     padding: 0 32px;
     background: rgba(0, 0, 0, 0.293);
     backdrop-filter: blur(8px);
@@ -41,13 +40,13 @@ body {
 }
 
 .navbar-left img {
-    height: 36px;
+    height: 30px;
     flex-shrink: 0;
 }
 
 .navbar-left h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 400;
     white-space: nowrap;
 }
@@ -68,31 +67,35 @@ body {
 }
 
 /* ══════════════════════════════════════
-   CONTENIDO PRINCIPAL
+   CONTENIDO — pantalla completa sin scroll
 ══════════════════════════════════════ */
 .content {
     width: 100%;
-    margin: 0 auto;
-    padding: 120px 32px 60px;
-    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 32px 16px;
+    overflow: hidden;
 }
 
 /* ══════════════════════════════════════
    HEADER DE SECCIÓN
 ══════════════════════════════════════ */
 .section-header {
-    padding: 32px;
+    padding: 14px 0 8px;
+    flex-shrink: 0;
 }
 
 .section-header h1 {
-    font-size: 42px;
+    font-size: 30px;
     font-weight: 500;
     font-family: "DM Serif Text", serif;
+    line-height: 1.1;
 }
 
 .section-header p {
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 4px;
+    font-size: 14px;
     color: #d0d0d0;
     position: relative;
 }
@@ -100,10 +103,10 @@ body {
 .section-header p::after {
     content: "";
     display: inline-block;
-    width: 180px;
+    width: 120px;
     height: 1px;
     background: rgba(255, 255, 255, 0.3);
-    margin-left: 15px;
+    margin-left: 12px;
     vertical-align: middle;
 }
 
@@ -113,15 +116,14 @@ body {
 .cards-events {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 60px;
-    padding: 0 200px;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
 .card-event {
     position: relative;
-    height: 500px;
-    border-radius: 18px;
+    height: clamp(140px, 22vh, 260px);
+    border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
     background: #000;
@@ -129,7 +131,7 @@ body {
 }
 
 .card-event:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
     box-shadow:
         0 0 0 1px rgba(245, 181, 83, 0.4),
         0 0 25px rgba(245, 181, 83, 0.35),
@@ -137,32 +139,11 @@ body {
 }
 
 .card-event.selected {
-    transform: scale(1.03);
+    transform: scale(1.02);
     box-shadow:
-        0 0 0 1px rgba(245, 181, 83, 0.6),
+        0 0 0 2px rgba(245, 181, 83, 0.7),
         0 0 30px rgba(245, 181, 83, 0.45),
         0 0 60px rgba(245, 181, 83, 0.35);
-}
-
-.card-event::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 22px;
-    background: linear-gradient(
-        180deg,
-        #F5B553,
-        #F7C873,
-        #FAEBCD,
-        #F5B553
-    );
-    opacity: 0;
-    z-index: 0;
-    animation: rotateBorder 3s linear infinite;
-}
-
-.card-event.selected::before {
-    opacity: 1;
 }
 
 /* IMAGEN DE FONDO */
@@ -173,7 +154,10 @@ body {
     background-position: center;
     transition: transform 0.4s ease;
     z-index: 1;
-    pointer-events: none;
+}
+
+.card-event:hover .card-bg {
+    transform: scale(1.06);
 }
 
 .matrimonio { background-image: url("assets/img/matrimonio.png"); }
@@ -185,10 +169,9 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 16px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
     z-index: 2;
-    pointer-events: none;
 }
 
 .card-info input[type="radio"] {
@@ -196,20 +179,60 @@ body {
 }
 
 .card-info h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 6px;
 }
 
 .card-info label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 13px;
     color: #e0e0e0;
 }
 
 .card-info input {
     accent-color: #F5B553;
+}
+
+/* ══════════════════════════════════════
+   FORMULARIO — flex grow para llenar
+   el espacio restante
+══════════════════════════════════════ */
+.event-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(8px);
+    padding: 20px 28px;
+    border-radius: 14px;
+    margin-top: 14px;
+    max-width: 650px;
+    width: 100%;
+    align-self: center;
+}
+
+.event-form h2 {
+    margin-bottom: 14px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.event-form > input {
+    width: 100%;
+    padding: 11px 14px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
+    color: #F5B553;
+    font-size: 14px;
+}
+
+.event-form input::placeholder {
+    color: #bdbdbd;
 }
 
 /* ══════════════════════════════════════
@@ -219,35 +242,34 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .input-group input {
     width: 100%;
-    padding: 14px 48px 14px 14px;
-    border-radius: 10px;
+    padding: 11px 44px 11px 14px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(0, 0, 0, 0.5);
     color: #F5B553;
-    height: 48px;
-    margin-bottom: 0;
+    font-size: 14px;
 }
 
-.input-group input:hover {
+.input-group input:hover,
+.event-form > input:hover {
     box-shadow:
         0 0 0 1px rgba(245, 181, 83, 0.4),
-        0 0 25px rgba(245, 181, 83, 0.35),
-        0 0 50px rgba(245, 181, 83, 0.25);
+        0 0 20px rgba(245, 181, 83, 0.25);
 }
 
 .input-icon {
     position: absolute;
-    right: 16px;
+    right: 14px;
     color: #F5B553;
     pointer-events: none;
+    font-size: 20px;
 }
 
-/* MATERIAL SYMBOL CONFIG */
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
@@ -257,50 +279,20 @@ body {
 }
 
 /* ══════════════════════════════════════
-   FORMULARIO
-══════════════════════════════════════ */
-.event-form {
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    padding: 40px;
-    border-radius: 16px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.event-form h2 {
-    margin-bottom: 25px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.event-form > input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.5);
-    color: #F5B553;
-}
-
-.event-form input::placeholder {
-    color: #bdbdbd;
-}
-
-/* ══════════════════════════════════════
    BOTÓN
 ══════════════════════════════════════ */
 button {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     border-radius: 10px;
     border: none;
     background: linear-gradient(135deg, #F5B553, #D89B3A);
     color: #000000;
     font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-top: 4px;
 }
 
 button:hover {
@@ -311,50 +303,60 @@ button:hover {
    RESPONSIVE
 ══════════════════════════════════════ */
 
-/* Pantallas medianas — tablets landscape (≤ 1200px) */
+/* Pantallas medianas (≤ 1200px) */
 @media (max-width: 1200px) {
-    .cards-events {
-        padding: 0 60px;
+    .content {
+        padding: 70px 20px 14px;
     }
 }
 
-/* Tablets (≤ 900px) */
+/* Tablets (≤ 900px) — permite scroll */
 @media (max-width: 900px) {
-    .cards-events {
-        grid-template-columns: 1fr;
-        padding: 0 32px;
-    }
-
-    .card-event {
-        height: 280px;
+    .content {
+        height: auto;
+        overflow: visible;
     }
 
     .navbar-left h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .section-header h1 {
-        font-size: 32px;
+        font-size: 24px;
     }
 
     .section-header p::after {
         display: none;
+    }
+
+    .cards-events {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card-event {
+        height: 200px;
+    }
+
+    .event-form {
+        margin-top: 16px;
+        max-width: 100%;
     }
 }
 
 /* Móviles (≤ 600px) */
 @media (max-width: 600px) {
     .navbar {
-        height: 70px;
+        height: 60px;
         padding: 0 16px;
     }
 
     .navbar-left img {
-        height: 26px;
+        height: 24px;
     }
 
     .navbar-left h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .navbar-right a {
@@ -362,93 +364,79 @@ button:hover {
     }
 
     .content {
-        padding: 90px 16px 40px;
+        padding: 70px 14px 16px;
     }
 
     .section-header {
-        padding: 16px;
+        padding: 12px 0 6px;
     }
 
     .section-header h1 {
-        font-size: 26px;
-    }
-
-    .section-header p {
-        font-size: 14px;
-    }
-
-    .cards-events {
-        gap: 16px;
-        padding: 0;
-        margin-bottom: 32px;
+        font-size: 20px;
     }
 
     .card-event {
-        height: 220px;
-        border-radius: 12px;
+        height: 170px;
+        border-radius: 10px;
     }
 
     .card-info h2 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .event-form {
-        padding: 24px 20px;
+        padding: 18px 16px;
         border-radius: 12px;
     }
 
     .event-form h2 {
-        font-size: 16px;
-        margin-bottom: 18px;
+        font-size: 15px;
     }
 
     .event-form > input,
     .input-group input {
-        padding: 12px;
-        font-size: 14px;
+        padding: 10px 12px;
+        font-size: 13px;
     }
 
     button {
-        padding: 12px;
-        font-size: 14px;
+        padding: 11px;
+        font-size: 13px;
     }
 }
 
 /* Móviles pequeños (≤ 360px) */
 @media (max-width: 360px) {
     .navbar-left h1 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .section-header h1 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .card-event {
-        height: 180px;
-    }
-
-    .event-form {
-        padding: 20px 14px;
+        height: 140px;
     }
 }
 
 /* Landscape en móvil */
 @media (max-height: 500px) and (orientation: landscape) {
     .navbar {
-        height: 60px;
+        height: 52px;
     }
 
     .content {
-        padding-top: 80px;
+        padding-top: 58px;
+        height: 100vh;
+        overflow: hidden;
     }
 
     .cards-events {
         grid-template-columns: repeat(3, 1fr);
-        padding: 0;
     }
 
     .card-event {
-        height: 200px;
+        height: clamp(100px, 28vh, 160px);
     }
 }
