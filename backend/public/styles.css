@@ -25,29 +25,32 @@ body {
 }
 
 /* LOGO */
+.login-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
 .login-header img {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 50%; /* 🔥 lo hace redondo */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4); /* sombra elegante */
-    transition: transform 0.6s ease;
-/* efecto flotante */
+
+    border-radius: 50%;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+
+    transition: transform 0.6s;
+
     animation: float 3s ease-in-out infinite;
-    transform-style: preserve-3d;
 }
 
 /* 🪶 flotando */
 @keyframes float {
-    0% {
-    transform: translateY(0px);
-}
-    50% {
-    transform: translateY(-10px);
-}
-    100% {
-    transform: translateY(0px);
-}
+    0% { transform: translateY(0px);}
+    50% { transform: translateY(-12px);}
+    100% { transform: translateY(0px);}
 }
 
 /* 🪙 giro tipo moneda */
