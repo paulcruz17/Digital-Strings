@@ -28,13 +28,14 @@ body {
 .login-header {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
 .login-header img {
     max-width: 170px;
     width: 100%;
     height: auto;
+    border-radius: 50%;
 }
 
 /* CARD */
