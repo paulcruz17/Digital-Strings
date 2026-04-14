@@ -22,7 +22,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 65px; /* 🔥 ajustado */
     display: flex;
     align-items: center;
     padding: 0 32px;
@@ -67,15 +67,15 @@ body {
 }
 
 /* ══════════════════════════════════════
-   CONTENIDO — pantalla completa sin scroll
+   CONTENIDO
 ══════════════════════════════════════ */
 .content {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 70px 32px 16px;
-    overflow: hidden;
+    padding: 100px 32px 40px; /* 🔥 ajustado */
+    gap: 28px; /* 🔥 ajustado */
 }
 
 /* ══════════════════════════════════════
@@ -122,7 +122,7 @@ body {
 
 .card-event {
     position: relative;
-    height: clamp(140px, 22vh, 260px);
+    height: clamp(140px, 18vh, 200px); /* 🔥 ajustado */
     border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
@@ -196,22 +196,26 @@ body {
 }
 
 /* ══════════════════════════════════════
-   FORMULARIO — flex grow para llenar
-   el espacio restante
+   FORMULARIO
 ══════════════════════════════════════ */
 .event-form {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* 🔥 arreglado */
+
     background: rgba(0, 0, 0, 0.60);
     backdrop-filter: blur(8px);
     padding: 20px 28px;
     border-radius: 14px;
+
+    margin: 0 auto; /* 🔥 centrado */
     margin-top: 14px;
-    max-width: 650px;
+
+    max-width: 520px; /* 🔥 ajustado */
     width: 100%;
-    align-self: center;
+
+    gap: 12px; /* 🔥 nuevo */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* 🔥 mejor */
 }
 
 .event-form h2 {
@@ -235,9 +239,7 @@ body {
     color: #bdbdbd;
 }
 
-/* ══════════════════════════════════════
-   INPUT GROUP (fecha con ícono)
-══════════════════════════════════════ */
+/* INPUT GROUP */
 .input-group {
     position: relative;
     display: flex;
@@ -270,17 +272,7 @@ body {
     font-size: 20px;
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-}
-
-/* ══════════════════════════════════════
-   BOTÓN
-══════════════════════════════════════ */
+/* BOTÓN */
 button {
     width: 100%;
     padding: 12px;
@@ -299,39 +291,21 @@ button:hover {
     background: linear-gradient(135deg, #F7C873, #FAEBCD);
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-
-/* Pantallas medianas (≤ 1200px) */
+/* ═════════════════ RESPONSIVE ═════════════════ */
 @media (max-width: 1200px) {
     .content {
-        padding: 70px 20px 14px;
+        padding: 80px 20px 14px;
     }
 }
 
-/* Tablets (≤ 900px) — permite scroll */
 @media (max-width: 900px) {
     .content {
         height: auto;
         overflow: visible;
     }
 
-    .navbar-left h1 {
-        font-size: 24px;
-    }
-
-    .section-header h1 {
-        font-size: 24px;
-    }
-
-    .section-header p::after {
-        display: none;
-    }
-
     .cards-events {
         grid-template-columns: 1fr;
-        gap: 12px;
     }
 
     .card-event {
@@ -339,104 +313,21 @@ button:hover {
     }
 
     .event-form {
-        margin-top: 16px;
         max-width: 100%;
     }
 }
 
-/* Móviles (≤ 600px) */
 @media (max-width: 600px) {
     .navbar {
         height: 60px;
         padding: 0 16px;
     }
 
-    .navbar-left img {
-        height: 24px;
-    }
-
-    .navbar-left h1 {
-        font-size: 18px;
-    }
-
-    .navbar-right a {
-        font-size: 12px;
-    }
-
     .content {
-        padding: 70px 14px 16px;
-    }
-
-    .section-header {
-        padding: 12px 0 6px;
-    }
-
-    .section-header h1 {
-        font-size: 20px;
+        padding: 80px 14px 16px;
     }
 
     .card-event {
         height: 170px;
-        border-radius: 10px;
-    }
-
-    .card-info h2 {
-        font-size: 14px;
-    }
-
-    .event-form {
-        padding: 18px 16px;
-        border-radius: 12px;
-    }
-
-    .event-form h2 {
-        font-size: 15px;
-    }
-
-    .event-form > input,
-    .input-group input {
-        padding: 10px 12px;
-        font-size: 13px;
-    }
-
-    button {
-        padding: 11px;
-        font-size: 13px;
-    }
-}
-
-/* Móviles pequeños (≤ 360px) */
-@media (max-width: 360px) {
-    .navbar-left h1 {
-        font-size: 14px;
-    }
-
-    .section-header h1 {
-        font-size: 18px;
-    }
-
-    .card-event {
-        height: 140px;
-    }
-}
-
-/* Landscape en móvil */
-@media (max-height: 500px) and (orientation: landscape) {
-    .navbar {
-        height: 52px;
-    }
-
-    .content {
-        padding-top: 58px;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .cards-events {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .card-event {
-        height: clamp(100px, 28vh, 160px);
     }
 }
